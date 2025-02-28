@@ -1,6 +1,6 @@
-const User = require("../models/User");
-const KYC = require("../models/KYC");
-const Post = require("../models/Post");
+const User = require("../models/User.models");
+const KYC = require("../models/KYC.models");
+const Post = require("../models/Posts.models");
 
 // Get all users
 // GET /api/users

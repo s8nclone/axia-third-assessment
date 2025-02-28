@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/User.models");
 const { JWT_EXPIRE } = require("../config/env");
 
 // Register user

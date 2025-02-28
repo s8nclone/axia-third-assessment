@@ -1,43 +1,37 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-// const errorHandler = require("./middlewares/errorHandler");
 
-// Route files
-// const authRoutes = require("./routes/authRoutes");
-// const userRoutes = require("./routes/userRoutes");
-// const kycRoutes = require("./routes/kycRoutes");
-// const postRoutes = require("./routes/postRoutes");
+// routes
+const authRoutes = require("./routes/auth.routes");
+const userRoutes = require("./routes/user.routes");
+const kycRoutes = require("./routes/kyc.routes");
+const postRoutes = require("./routes/post.routes");
 
-// Create Express app
 const app = express();
 
-// Body parser
 app.use(express.json());
 
-// Enable CORS
+// enable CORS
 app.use(cors());
 
-// Dev logging middleware
+// dev logging middleware
 if (process.env.NODE_ENV === "development") {
 	app.use(morgan("dev"));
 }
 
-// Mount routers
-// app.use("/api/auth", authRoutes);
-// app.use("/api/users", userRoutes);
-// app.use("/api/kyc", kycRoutes);
-// app.use("/api/posts", postRoutes);
+// routers
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/kyc", kycRoutes);
+app.use("/api/posts", postRoutes);
 
-// Basic route
+// home route
 app.get("/", (req, res) => {
 	res.json({
 		success: true,
 		message: "API is running",
 	});
 });
-
-// Error handler (should be last middleware)
-// app.use(errorHandler);
 
 module.exports = app;

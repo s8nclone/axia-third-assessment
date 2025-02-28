@@ -1,4 +1,4 @@
-const KYC = require("../models/KYC");
+const KYC = require("../models/KYC.models");
 
 // Create KYC document
 // POST /api/kyc
